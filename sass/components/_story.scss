@@ -1,0 +1,76 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: rgba($color-white, .6);
+  border-radius: .3rem;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  @include resp(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include resp(phone) {
+    transform: skewX(0);
+  }
+
+  &__shape {
+    width: 16rem;
+    height: 16rem;
+    float: left;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%); // makes text wrap arround the shape we want. First parameter is radius, second parameter is center coordinates. Only works on floated elements
+    clip-path: circle(50% at 50% 50%);
+    transform: skewX(12deg) translateX(-3rem);
+    position: relative;
+
+    @include resp(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
+  }
+
+  &__image {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    transition: transform .5s;
+    // backface-visibility: hidden;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include resp(phone) {
+      transform: skewX(0);
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    // -webkit-transform: translateX(-4rem) scale(1);
+    filter: blur(.3rem) brightness(80%);
+  }
+}

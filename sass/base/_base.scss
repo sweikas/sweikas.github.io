@@ -1,0 +1,37 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* for accesibility reasons use percentage. This defaults to 10px, if browser default is 16px */
+
+  @include resp(tab-land) {
+    font-size: 56.25%; //1rem = 9 px, 9/16 = 56.25%
+  }
+
+  @include resp(tab-port) {
+    font-size: 50%; //1rem = 8 px, 8/16 = 50%
+  }
+
+  @include resp(big-desk) {
+    font-size: 75%; //1rem = 12 px, 12/16 = 75%
+  }
+}
+
+body {
+  padding: 3rem;
+  box-sizing: border-box;
+
+  @include resp(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

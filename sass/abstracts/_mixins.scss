@@ -1,0 +1,36 @@
+@mixin clearfix {
+  &::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Media queries
+
+/*
+0-600px 37.5em phone
+600-900 56.25em tablet-portrait mode
+900-1200 75em tablet landscape
+1200-1800 Normal styles
+1800 112.5em + big screens
+*/
+
+// basic order for media queries: base + typography -> general layout + grid -> page layout -> components
+
+// Breakpoint values phone, tab-port, tab-land, big-desk
+// use em's for media queries 1em=16px
+@mixin resp($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {@content}; //only screen ensure that media quesries doesn't affect printed versions of the site.
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {@content};
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {@content};
+  }
+  @if $breakpoint == big-desk {
+    @media only screen and (min-width: 112.5em) {@content};
+  }
+}
