@@ -30,6 +30,11 @@
     position: absolute;
     top: 4rem;
     left: 4rem;
+
+    @include resp(tab-port) {
+      top: 2rem;
+      left: 2rem;
+    }
   }
 
   &__logo {

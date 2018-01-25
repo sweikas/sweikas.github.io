@@ -18,14 +18,16 @@
     cursor: pointer;
 
     @include resp(tab-port) {
-      top: 4rem;
-      right: 4rem;
+      top: 2rem;
+      right: 2rem;
+      height: 5rem;
+      width: 5rem;
     }
 
-    @include resp(phone) {
-      top: 3rem;
-      right: 3rem;
-    }
+    // @include resp(phone) {
+    //   top: 3rem;
+    //   right: 3rem;
+    // }
   }
 
   &__background {
@@ -40,14 +42,16 @@
     transition: transform .8s cubic-bezier(0.86,0,0.07,1);
 
     @include resp(tab-port) {
-      top: 4.5rem;
-      right: 4.5rem;
+      top: 2.5rem;
+      right: 2.5rem;
+      height: 4rem;
+      width: 4rem;
     }
 
-    @include resp(phone) {
-      top: 3.5rem;
-      right: 3.5rem;
-    }
+    // @include resp(phone) {
+    //   top: 3.5rem;
+    //   right: 3.5rem;
+    // }
   }
 
   &__nav {
@@ -112,6 +116,10 @@
     position: relative;
     margin-top: 3.25rem;
 
+    @include resp(tab-port) {
+      margin-top: 2.3rem;
+    }
+
     &,
     &::after,
     &::before {
@@ -119,6 +127,10 @@
       height: 3px;
       background-color: $color-grey-dark-3;
       display: inline-block;
+
+      @include resp(tab-port) {
+        height: 2px;
+      }
     }
 
     &::after,
